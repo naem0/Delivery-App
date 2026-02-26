@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DeliveryHobe! - 24/7 Emergency Delivery Service</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Material+Icons&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#EF4444", // Vibrant Red
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#0A0A0A",
+                        "card-dark": "#171717",
+                        "accent-yellow": "#FACC15"
+                    },
+                    fontFamily: {
+                        display: ["Plus Jakarta Sans", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "12px",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 10px;
+        }
+        .gradient-bg {
+            background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.15), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(239, 68, 68, 0.05), transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen transition-colors duration-300">
+<div class="bg-emerald-600 text-white text-[10px] md:text-xs font-bold py-1.5 text-center uppercase tracking-widest">
+        ● We're Open - Delivering till 12:00 AM ●
+    </div>
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-white/10 px-4 py-3 md:px-8">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="text-primary font-extrabold text-2xl tracking-tighter">DeliveryHobe!</span>
+<span class="hidden md:block text-[10px] dark:text-slate-400 font-medium leading-none">24/7 EMERGENCY<br/>DELIVERIES</span>
+</div>
+<div class="flex-1 max-w-2xl flex items-center bg-slate-100 dark:bg-card-dark rounded-full px-4 py-2 border border-transparent focus-within:border-primary transition-all">
+<span class="material-icons text-slate-400 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-slate-500" placeholder="Search for groceries, medicine, or electronics..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center gap-2 bg-slate-100 dark:bg-card-dark px-3 py-1.5 rounded-full border border-slate-200 dark:border-white/5">
+<span class="material-icons text-primary text-lg">location_on</span>
+<div class="text-[10px]">
+<p class="text-slate-500 dark:text-slate-400 leading-none">Delivering to</p>
+<p class="font-bold truncate max-w-[120px]">Dhaka, Dhanmondi R/A</p>
+</div>
+</div>
+<button class="flex items-center gap-2 bg-accent-yellow text-black font-bold px-4 py-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-icons text-xl">shopping_cart</span>
+<span class="text-sm">৳ 4,745</span>
+<span class="bg-black/10 px-2 rounded text-[10px]">5 items</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-4 py-8 md:px-8 gradient-bg">
+<div class="grid lg:grid-cols-12 gap-8 mb-16">
+<div class="lg:col-span-7 flex flex-col justify-center">
+<h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    24/7 Emergency <br/><span class="text-primary">Delivery Service_</span>
+</h1>
+<p class="text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
+                    Get anything delivered from your local dokans in as fast as <span class="text-primary font-bold underline">98 mins!</span> From snacks to emergency meds, we have you covered.
+                </p>
+<div class="bg-white dark:bg-card-dark p-6 rounded-3xl shadow-xl border border-slate-200 dark:border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+<h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+<span class="material-icons text-primary">edit_note</span>
+                        Order Anything Custom
+                    </h3>
+<div class="flex flex-col md:flex-row gap-3">
+<textarea class="flex-1 bg-slate-50 dark:bg-background-dark/50 border-slate-200 dark:border-white/10 rounded-2xl p-4 text-sm focus:ring-primary focus:border-primary dark:text-white min-h-[100px]" placeholder="List items you need (e.g. 2kg Rice, Paracetamol, A4 Paper...)"></textarea>
+<button class="bg-primary hover:bg-red-600 text-white font-bold py-4 px-8 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2">
+                            Request <span class="material-icons">arrow_forward</span>
+</button>
+</div>
+<p class="text-[10px] text-slate-500 mt-3 flex items-center gap-1">
+<span class="material-icons text-[12px]">info</span>
+                        Our rider will call you to confirm prices before purchasing.
+                    </p>
+</div>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="aspect-[4/3] bg-primary rounded-3xl overflow-hidden shadow-2xl relative">
+<img alt="Delivery Guy" class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFgm4ohatiXZVJlKoWJHSzTHnyeRvGCUd_aTTqi9Ypxl78Th-K6BGaI9YjiyfD9LJWY4ra2CwLE8K3vcDNw_EbRMcvuM0ukEbBsshH2MOaLqvUBDXcef5JCF3vtfJKTbQ2CgkpSbzxnUX5VnNN2LFoAoCC-Q9oRDvacByhAP2VqXazShjVZa8JsETcNyCAwzWapghOg0KgV_4JYqjF2HO2DMJb11jtozTsR1_69VKNsS7uwDKsS9q6bC6D1si1d5RnD9fw10lxh3-O"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+<div class="inline-block bg-accent-yellow text-black text-[10px] font-black px-3 py-1 rounded-full w-fit mb-2 uppercase tracking-tighter">Limited Offer</div>
+<h2 class="text-3xl font-black text-white mb-2 italic">DELIVERY HOBE!</h2>
+<p class="text-white/80 font-bold text-xl">01623-088935 💬</p>
+</div>
+</div>
+<div class="flex justify-center gap-1.5 mt-4">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-white/20"></div>
+<div class="w-2 h-2 rounded-full bg-slate-300 dark:bg-white/20"></div>
+</div>
+</div>
+</div>
+<section class="mb-16">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-2xl font-black flex items-center gap-2">
+                    Quick Categories
+                    <span class="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+</h2>
+<a class="text-primary font-bold text-sm hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-orange-500">fastfood</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Street Foods</span>
+</a>
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-blue-500">local_pharmacy</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Pharmacy</span>
+</a>
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-emerald-500">shopping_basket</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Groceries</span>
+</a>
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-purple-500">devices</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Electronics</span>
+</a>
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-pink-500">favorite</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Wellness</span>
+</a>
+<a class="group bg-white dark:bg-card-dark border border-slate-100 dark:border-white/5 p-4 rounded-2xl flex flex-col items-center text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50" href="#">
+<div class="w-16 h-16 bg-slate-50 dark:bg-background-dark rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl text-yellow-500">set_meal</span>
+</div>
+<span class="text-xs font-bold dark:text-slate-300">Meat &amp; Fish</span>
+</a>
+</div>
+</section>
+<section class="mb-16 bg-slate-100/50 dark:bg-white/5 p-6 md:p-10 rounded-[40px] border border-slate-200 dark:border-white/5">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+<div>
+<h2 class="text-3xl font-black mb-2">Our Recommendations</h2>
+<p class="text-sm text-slate-500 italic">Oi, ei gula check koro! 👀 Lagbe naki? Naile sobai niye felbe!</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-card-dark rounded-full text-[10px] font-bold border border-slate-200 dark:border-white/10">
+<span class="material-icons text-[14px] text-primary">visibility</span> 5364 Viewing Now
+                    </div>
+<button class="bg-primary hover:bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg transition-all flex items-center gap-2">
+<span class="material-icons text-sm">shuffle</span> Shuffle
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+<div class="bg-white dark:bg-background-dark p-4 rounded-3xl border border-slate-200 dark:border-white/5 group hover:shadow-2xl transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-card-dark rounded-2xl mb-4 overflow-hidden relative">
+<img alt="Spice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg0_3u14eIfJPtCYmo4FpRUHD4Weeufa7RgasH7apFmO8jtkdY0kr21A0ik_PTqWVkQiV2XnaXsKA__An4FM9sphi30pKqS3ErlAHvHgbZ_RkJtPCRGFFpZkNjo8H9mVBQ82J6e-xPsRey5Ej2K6H3UvCcc-1tzZdfkzpfRdHJMc2tpCJI4Ie2PJhHSbjReRGFLmqauFX8ZTxtHrf-96l1pelVavCBQZ5miyk8GkoI06DjP9p3PlhKUm54euBT0t7MiNqI0jm5NGvr"/>
+<div class="absolute top-2 left-2 bg-primary text-[8px] font-black text-white px-2 py-0.5 rounded-full uppercase">Top Choice</div>
+</div>
+<h4 class="text-xs font-bold mb-1 truncate">Radhuni Chilli Powder</h4>
+<p class="text-[10px] text-slate-400 mb-3">100gm Pack</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-black">৳45</span>
+<button class="bg-slate-100 dark:bg-white/10 hover:bg-primary hover:text-white dark:hover:bg-primary p-2 rounded-xl transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-4 rounded-3xl border border-slate-200 dark:border-white/5 group hover:shadow-2xl transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-card-dark rounded-2xl mb-4 overflow-hidden relative">
+<img alt="Food" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBF4UDMSQfQaNr9klXVEJZZOH4FHbsYobzhj5Ys8g5tBzpTg1W7VhAZBmFGh_IOVlJGJi3XOj3e4Wb0-CgRtYhuwZ8AUVl8pzFrEhH14ScUMgH2_c8bxpjuXYvu5OlOUvY1rofBDaizPQawhduDtQZJO_zPam1kfiRsKYIYCbP_ZkieMgu4picP10KaZoSZDrFSODEdYYrIpejf8W7umsLh5vk1GtvRtJldePoRAJkCkSkN8I5Mr6YgWwS6mmJBRKR84IGQvv1rB7d6"/>
+</div>
+<h4 class="text-xs font-bold mb-1 truncate">Maggi Masala Noodles</h4>
+<p class="text-[10px] text-slate-400 mb-3">4pcs Pack</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-black">৳100</span>
+<button class="bg-slate-100 dark:bg-white/10 hover:bg-primary hover:text-white dark:hover:bg-primary p-2 rounded-xl transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-4 rounded-3xl border border-slate-200 dark:border-white/5 group hover:shadow-2xl transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-card-dark rounded-2xl mb-4 overflow-hidden relative">
+<img alt="Fish" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiXBDAPlObqHePmyiNdP4HXj7JhwPOdoFRA8YvQHnbhRlFOoM7btS3kTJWQfwYbsj4ixXiui53xMb9mBR88bvV6utujbpcmETztp_76kJHglltqfIMRFbbldIWJVetcMsI3yJlXHGx_CIC5GVZf7Rw5-NEXHljQvJjqDQ-RNR3OaOr1ICg1_UX-fnKpp_RQDfnRWXEAxWY4DeCYfYbtzdJbeXph5Wj4Cm_ButjhUrApwv9uuDybPwwpVP1dNmPotqze21NBwK8wQCZ"/>
+<div class="absolute top-2 left-2 bg-emerald-500 text-[8px] font-black text-white px-2 py-0.5 rounded-full uppercase">Fresh Catch</div>
+</div>
+<h4 class="text-xs font-bold mb-1 truncate">Rupchanda (Pomfret)</h4>
+<p class="text-[10px] text-slate-400 mb-3">500gm Approx</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-black">৳1390</span>
+<button class="bg-slate-100 dark:bg-white/10 hover:bg-primary hover:text-white dark:hover:bg-primary p-2 rounded-xl transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-background-dark p-4 rounded-3xl border border-slate-200 dark:border-white/5 group hover:shadow-2xl transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-card-dark rounded-2xl mb-4 overflow-hidden relative">
+<img alt="Snack" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp_tpyDgjYaD1JDeMaB-lOiiNz2hQHaR8nRIjZNaXpbMmbOA7jrZJrIaelfjZRr_95gQ1lb6f4Z_0RJ3Nk9Z7nkhr-8fXOt_q5D8Rf8QmEp2vrzM6Tkb0zp7dObUAZkVWE0Hdi6fXYW2djgpZSNqMxNJeDUKSCuxmh1SgXHyfYflUuW_2l3aFk61yL1m0yKW4PAs-CBvpxpGDjALZvM_usfwqbxCwsYJ9zEO-eUwEYu757J2YNNsoZPNI0SgL5tzVEsac-o5XfNP4c"/>
+</div>
+<h4 class="text-xs font-bold mb-1 truncate">Special Bhapa Pitha</h4>
+<p class="text-[10px] text-slate-400 mb-3">1 pcs Large</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-black">৳25</span>
+<button class="bg-slate-100 dark:bg-white/10 hover:bg-primary hover:text-white dark:hover:bg-primary p-2 rounded-xl transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+<div class="hidden lg:block bg-white dark:bg-background-dark p-4 rounded-3xl border border-slate-200 dark:border-white/5 group hover:shadow-2xl transition-all">
+<div class="aspect-square bg-slate-50 dark:bg-card-dark rounded-2xl mb-4 overflow-hidden relative">
+<img alt="Mustard Oil" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjh4dW3ISgy1xjEf-YPUTfWqA9kU1LZOk4sG8mrXOrGecByvjLWKa1pSPgWrNUKR4BYPgbpqyrjHb3t5PLg3C-T30E8zny0Gym9WpPy2SC2__O5X_J82eR5AR8P_wiP1itnPIpQBaiplaIaUK3V2YkJn-guqF_YbqBenRDEJf9TZOpp63CJuPKmdzO6SegEzGE9MrGXJtXG1AhYWBVgooAsY3Y4YX4uUTpBmpracKsnOQEMGRCCvBZOdh8_VfBjKSIzPnHxv51xO1x"/>
+</div>
+<h4 class="text-xs font-bold mb-1 truncate">Radhuni Mustard Oil</h4>
+<p class="text-[10px] text-slate-400 mb-3">80ml Bottle</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-black">৳40</span>
+<button class="bg-slate-100 dark:bg-white/10 hover:bg-primary hover:text-white dark:hover:bg-primary p-2 rounded-xl transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<button class="bg-white/50 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 px-8 py-3 rounded-2xl font-bold text-sm transition-all flex items-center gap-2">
+                    Show Me More Surprises
+                    <span class="material-icons text-sm">keyboard_arrow_down</span>
+</button>
+</div>
+</section>
+<section class="mb-16">
+<h2 class="text-2xl font-black mb-8">What our people say</h2>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-card-dark p-6 rounded-3xl border border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1 text-accent-yellow mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<p class="text-xs italic text-slate-600 dark:text-slate-400 mb-6">"Blackout in the area, still got candles and batteries delivered. DeliveryHobe works when others don't!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_23lnojx6BO012f5AgJIZ2vPdmsYHsX-NH6_xwfU8PIwPCJTU6uIARa3TfkR34EzpztzuOIhiHdC2Ucq-QXrLAcVH9yJPaK1sV2VpFDcuNDYcLRxNdKMibYd9aO3ZeB7mLOEV_7-yAKvIrlKkgL3bL-_djQCD63w31J_CN1jHWfP6qne_Shc0EIM2a07TuqGFGkmEvlICCDxhFFGCgLc5E0eG3SD7SB_ACUzNIKyDfoLKMLYVPaDQ3NviQi6H2kqRE_spVKzPXRzK"/>
+</div>
+<div>
+<p class="text-xs font-black">Sohan E.</p>
+<p class="text-[10px] text-slate-500">Verified Customer</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark p-6 rounded-3xl border border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1 text-accent-yellow mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<p class="text-xs italic text-slate-600 dark:text-slate-400 mb-6">"Emergency meds delivered in 20 mins during hartal. This app is a blessing for emergencies!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkL6JSZtB__F71E_CdYM1uftClwg35z3ree7_N-9BUkwOxaHhMQCIVXRvohD1hYE8xRxW_819xiD5ZYmBAO1M7vJkpCw4g3l_ublXKwdpWVq_DNcieiHmgBR1tZi4EEPsheRTA96J1i6Wv_TpejNvnkQKXzbM6TSlMIzfI-NbwlGfxNZwsGTQ7SDpYMbwLpVjG3oaUGsiU-GI9En4j_2vQAl20tQGjv445Kp-Xdfbax-PZULclImCgG0U3meHA39si1ndMroPisp0t"/>
+</div>
+<div>
+<p class="text-xs font-black">Ehsanur R.</p>
+<p class="text-[10px] text-slate-500">Verified Customer</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark p-6 rounded-3xl border border-slate-100 dark:border-white/5">
+<div class="flex items-center gap-1 text-accent-yellow mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<p class="text-xs italic text-slate-600 dark:text-slate-400 mb-6">"Can't believe I got fresh bhelpuri at 2 AM! DeliveryHobe saved my late-night cravings. Super fast!"</p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="User" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUMRDI90vxlHZe61JwMCvzZ5xAQ6Ks0PvMYVhAfO9nEPqhyLO917XmpFXStXxeJKFkpgJC679s1BPo1UmFPJR-NBYPMIy36Hq75dwH_PQYLtRSU2YXwuNkHUiA5mo7bDSS4ji2BiQFzLZVfU-V5d4gdW9hMadskE-XjE16TrFekaTQGvqw6yW2cn61Q7GgA2PzgSevTq5D_HEHzPQ2HeALj4g4okSXg6lvQ-tlsXNtIHsQu8m7QjHxVV-7wOkMGKtN-_BicuApB7l"/>
+</div>
+<div>
+<p class="text-xs font-black">Saroar S.</p>
+<p class="text-[10px] text-slate-500">Verified Customer</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<div class="md:hidden fixed bottom-6 right-6 z-50">
+<button class="bg-accent-yellow text-black w-14 h-14 rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-background-dark">
+<span class="material-icons">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">5</span>
+</button>
+</div>
+<footer class="bg-slate-100 dark:bg-card-dark pt-16 pb-8 border-t border-slate-200 dark:border-white/5">
+<div class="max-w-7xl mx-auto px-4 md:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
+<div class="col-span-2 lg:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<span class="text-primary font-extrabold text-2xl tracking-tighter">DeliveryHobe!</span>
+</div>
+<p class="text-xs text-slate-500 max-w-xs mb-6">Your local companion for emergency deliveries. We're bridging the gap between you and your neighborhood dokan, anytime you need.</p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">camera_alt</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-xs font-black mb-4 uppercase">Company</h5>
+<ul class="text-[10px] space-y-3 text-slate-500">
+<li><a class="hover:text-primary" href="#">About Us</a></li>
+<li><a class="hover:text-primary" href="#">Become a Rider</a></li>
+<li><a class="hover:text-primary" href="#">Merchant Partner</a></li>
+<li><a class="hover:text-primary" href="#">Career</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-black mb-4 uppercase">Support</h5>
+<ul class="text-[10px] space-y-3 text-slate-500">
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Safety Center</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-black mb-4 uppercase">Download App</h5>
+<div class="space-y-3">
+<div class="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/20">
+<span class="material-icons text-xl">apple</span>
+<div class="leading-none"><p class="text-[8px]">Download on</p><p class="text-[10px] font-bold">App Store</p></div>
+</div>
+<div class="bg-black text-white px-3 py-1.5 rounded-lg flex items-center gap-2 border border-white/20">
+<span class="material-icons text-xl">play_arrow</span>
+<div class="leading-none"><p class="text-[8px]">Get it on</p><p class="text-[10px] font-bold">Google Play</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-slate-200 dark:border-white/5 gap-4">
+<p class="text-[10px] text-slate-500">© 2024 DeliveryHobe! All rights reserved.</p>
+<div class="flex items-center gap-2">
+<img alt="Visa" class="h-6 grayscale opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDvegFUMHdsOGVPe_iYnpOsJFv3eBwY60NqXWqlCx4MpDi1_xY7Z0L8Axe8bwC4ZYZIgm62FGtBggPink5X6yu9aQvpxFTK7y8Sy8d7gXFDdzW2vdh_LWNwcQwZJ_x9ABLg59gQaFmuR9gAK4rKjsNkV6Ntu77Ihc81b_kWdI1k6SxCUQbRNBrXoiURx3g0xoUX8OBGyzFrYlV86h9hcpnnFlH0G_uOB5EYZUX1pF4EdLODVsqJViKLmM6h8GD2XjrveLWfQ2la15M"/>
+<img alt="Mastercard" class="h-6 grayscale opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOulMdLn6_r9q7beM0D-f2DyyaK5x_syEDuH82vcUGgxUIUtauo9xYSCOOqsoPPAF4G2VwDt0mdtT_1bxUHpq5fRMQlFRJrWb4fIt9ZLKxWvRj3ekRc2kM2opMoAkp9VplOiD8T8PeLTqXyggr3xIq7kx4UOLjY584dh9gVyBMjMOHZvb55lvPeqnKkknOSzCL8ps8op8K8zRGCjdjDc-n335JeIe7zDKSLwvGFYIPBCM9TkcD8UmYNNj79shuUxgYuwvQDwHVVQL0"/>
+<img alt="Paypal" class="h-6 grayscale opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcmZgno8ZwLoJGiPnngi8Fac1iCuw9dmrRnizOIqZykaaz-wIGoBhot0eXx29w8O76GeJVxflUQLdEeiCWyLK_uRUWrXJYSMjdPCbk4Cd__IZ2qXqabkkflJHzuoF9r1Hky1AM8hbY5M9Tm5nsU3Xa81JJEEe0yjM2klYvdmS3AB2BPY8p_Dlb0jTsPXK75g48NVmfbrK2JcFPwjgBkLNgQlsu6gDzMKJf29hnls19UDTjtz8NSuEpykCBVjj8Z6MCNoQKrtqnrS-Z"/>
+</div>
+</div>
+</div>
+</footer>
+<div class="fixed right-0 top-0 h-full w-[400px] bg-white dark:bg-card-dark shadow-2xl z-[60] transform translate-x-full transition-transform duration-300 pointer-events-none" id="cartDrawer">
+</div>
+<script>
+        // Toggle Dark Mode (Optional for user convenience)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+</body></html>

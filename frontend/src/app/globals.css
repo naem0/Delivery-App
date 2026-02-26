@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@300;400;500;600;700&family=Material+Icons&display=swap');
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.75rem;
+  --background: #F9FAFB;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-rgb: 255, 255, 255;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #EF4444;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #FACC15;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #EF4444;
+  --chart-1: #EF4444;
+  --chart-2: #10B981;
+  --chart-3: #3B82F6;
+  --chart-4: #F59E0B;
+  --chart-5: #8B5CF6;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #0F172A;
+  --sidebar-primary: #EF4444;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F1F5F9;
+  --sidebar-accent-foreground: #0F172A;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #EF4444;
+}
+
+.dark {
+  --background: #0A0A0A;
+  --foreground: #F8FAFC;
+  --card: #171717;
+  --card-rgb: 23, 23, 23;
+  --card-foreground: #F8FAFC;
+  --popover: #171717;
+  --popover-foreground: #F8FAFC;
+  --primary: #EF4444;
+  --primary-foreground: #FFFFFF;
+  --secondary: #262626;
+  --secondary-foreground: #F8FAFC;
+  --muted: #262626;
+  --muted-foreground: #94A3B8;
+  --accent: #FACC15;
+  --accent-foreground: #0F172A;
+  --destructive: #EF4444;
+  --border: #262626;
+  --input: #262626;
+  --ring: #EF4444;
+  --sidebar: #171717;
+  --sidebar-foreground: #F8FAFC;
+  --sidebar-primary: #EF4444;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #262626;
+  --sidebar-accent-foreground: #F8FAFC;
+  --sidebar-border: #262626;
+  --sidebar-ring: #EF4444;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', 'Hind Siliguri', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+
+/* Gradient overlay for hero image */
+.gradient-bg {
+  background: radial-gradient(circle at top right, rgba(239, 68, 68, 0.15), transparent 40%),
+    radial-gradient(circle at bottom left, rgba(239, 68, 68, 0.05), transparent 40%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Mobile bottom nav spacing */
+.main-content {
+  padding-bottom: 80px;
+}
+
+@media (min-width: 768px) {
+  .main-content {
+    padding-bottom: 0;
+  }
+}
