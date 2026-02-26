@@ -26,10 +26,7 @@ export default function TestimonialSection() {
                             </div>
                             <p className="text-xs italic text-muted-foreground mb-6">{isBn ? review.textBn : review.textEn}</p>
                             <div className="flex items-center gap-3">
-                                <Avatar className="w-10 h-10">
-                                    <AvatarImage src={review.avatar} alt={review.name} />
-                                    <AvatarFallback>{review.name[0]}</AvatarFallback>
-                                </Avatar>
+                                <Avatar className="w-10 h-10"><AvatarImage src={review.avatar} alt={review.name} /><AvatarFallback>{review.name[0]}</AvatarFallback></Avatar>
                                 <div>
                                     <p className="text-xs font-black">{isBn ? review.nameBn : review.name}</p>
                                     <p className="text-[10px] text-muted-foreground">{t.verifiedCustomer}</p>

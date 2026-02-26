@@ -1,8 +1,9 @@
 'use client';
 import { useApp } from '@/context/AppContext';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
-interface Category {
+export interface CategoryData {
     _id: string;
     nameEn: string;
     nameBn: string;
@@ -11,22 +12,23 @@ interface Category {
 }
 
 interface CategorySectionProps {
-    categories: Category[];
+    categories: CategoryData[];
+    selectedCategory: string | null;
+    onCategoryClick: (id: string) => void;
+    onViewAll: () => void;
 }
 
-const FALLBACK_CATEGORIES: Category[] = [
-    { _id: '1', nameEn: 'Street Foods', nameBn: 'রাস্তার খাবার', icon: 'fastfood', color: 'text-orange-500' },
-    { _id: '2', nameEn: 'Pharmacy', nameBn: 'ফার্মেসি', icon: 'local_pharmacy', color: 'text-blue-500' },
-    { _id: '3', nameEn: 'Groceries', nameBn: 'মুদি দোকান', icon: 'shopping_basket', color: 'text-emerald-500' },
-    { _id: '4', nameEn: 'Electronics', nameBn: 'ইলেকট্রনিক্স', icon: 'devices', color: 'text-purple-500' },
-    { _id: '5', nameEn: 'Wellness', nameBn: 'স্বাস্থ্য', icon: 'favorite', color: 'text-pink-500' },
-    { _id: '6', nameEn: 'Meat & Fish', nameBn: 'মাছ ও মাংস', icon: 'set_meal', color: 'text-yellow-500' },
-];
-
-export default function CategorySection({ categories }: CategorySectionProps) {
+export default function CategorySection({ categories, selectedCategory, onCategoryClick, onViewAll }: CategorySectionProps) {
     const { t, language } = useApp();
     const isBn = language === 'bn';
-    const displayCategories = categories.length > 0 ? categories : FALLBACK_CATEGORIES;
+
+    // Material icon color map for API categories
+    const iconColorMap: Record<string, string> = {
+        fastfood: 'text-orange-500', local_pharmacy: 'text-blue-500',
+        shopping_basket: 'text-emerald-500', devices: 'text-purple-500',
+        favorite: 'text-pink-500', set_meal: 'text-yellow-500',
+        local_grocery_store: 'text-emerald-500', bakery_dining: 'text-amber-500',
+    };
 
     return (
         <section className="mb-16 animate-slide-up">
@@ -35,16 +37,24 @@ export default function CategorySection({ categories }: CategorySectionProps) {
                     {t.categories}
                     <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 </h2>
-                <a className="text-primary font-bold text-sm hover:underline cursor-pointer">{t.viewAll}</a>
+                <Button variant="ghost" size="sm" onClick={onViewAll} className="text-primary font-bold text-sm hover:underline">
+                    {t.viewAll}
+                </Button>
             </div>
             <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                {displayCategories.map(cat => (
-                    <Card key={cat._id} className="group cursor-pointer transition-all hover:-translate-y-1 hover:shadow-xl hover:border-primary/50 border">
+                {categories.map(cat => (
+                    <Card
+                        key={cat._id}
+                        onClick={() => onCategoryClick(cat._id)}
+                        className={`group cursor-pointer transition-all hover:-translate-y-1 hover:shadow-xl border ${selectedCategory === cat._id ? 'border-primary ring-2 ring-primary/20 shadow-lg' : 'hover:border-primary/50'}`}
+                    >
                         <CardContent className="p-4 flex flex-col items-center text-center">
-                            <div className="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                                <span className={`material-icons text-3xl ${cat.color || 'text-primary'}`}>{cat.icon}</span>
+                            <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform ${selectedCategory === cat._id ? 'bg-primary/10' : 'bg-secondary'}`}>
+                                <span className="text-3xl">{cat.icon || '🛒'}</span>
                             </div>
-                            <span className="text-xs font-bold">{isBn ? cat.nameBn : cat.nameEn}</span>
+                            <span className={`text-xs font-bold ${selectedCategory === cat._id ? 'text-primary' : ''}`}>
+                                {isBn ? cat.nameBn : cat.nameEn}
+                            </span>
                         </CardContent>
                     </Card>
                 ))}
