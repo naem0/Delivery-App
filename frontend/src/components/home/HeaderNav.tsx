@@ -4,16 +4,17 @@ import { useSession, signOut } from 'next-auth/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Search, MapPin, ShoppingCart, Moon, Sun, Globe, User, LogOut, X } from 'lucide-react';
+import { Search, MapPin, ShoppingCart, Moon, Sun, Globe, User, LogOut, X, PackageSearch } from 'lucide-react';
 
 interface HeaderNavProps {
     searchQuery: string;
     onSearchChange: (value: string) => void;
     onCartClick: () => void;
     onLoginClick: () => void;
+    onMyOrdersClick: () => void;
 }
 
-export default function HeaderNav({ searchQuery, onSearchChange, onCartClick, onLoginClick }: HeaderNavProps) {
+export default function HeaderNav({ searchQuery, onSearchChange, onCartClick, onLoginClick, onMyOrdersClick }: HeaderNavProps) {
     const { t, cart, language, setLanguage, theme, toggleTheme, cartTotal } = useApp();
     const { data: session } = useSession();
     const isBn = language === 'bn';
@@ -64,9 +65,26 @@ export default function HeaderNav({ searchQuery, onSearchChange, onCartClick, on
                     </Button>
 
                     {session?.user ? (
-                        <Button variant="ghost" size="sm" onClick={() => signOut()} className="rounded-full text-xs gap-1 hidden md:flex">
-                            <LogOut className="w-3.5 h-3.5" /> {session.user.name || t.logout}
-                        </Button>
+                        <>
+                            {/* My Orders button - shown when logged in */}
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={onMyOrdersClick}
+                                className="rounded-full text-xs gap-1 hidden md:flex font-bold text-primary hover:bg-primary/10"
+                            >
+                                <PackageSearch className="w-3.5 h-3.5" />
+                                {isBn ? 'আমার অর্ডার' : 'My Orders'}
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => signOut()}
+                                className="rounded-full text-xs gap-1 hidden md:flex"
+                            >
+                                <LogOut className="w-3.5 h-3.5" /> {session.user.name?.split(' ')[0] || t.logout}
+                            </Button>
+                        </>
                     ) : (
                         <Button variant="ghost" size="sm" onClick={onLoginClick} className="rounded-full text-xs gap-1 hidden md:flex">
                             <User className="w-3.5 h-3.5" /> {t.login}

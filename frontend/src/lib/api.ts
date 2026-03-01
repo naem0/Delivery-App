@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getSession } from 'next-auth/react';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -8,8 +9,21 @@ const api = axios.create({
 });
 
 // Attach token to every request
-api.interceptors.request.use((config) => {
+// Priority: NextAuth session backendToken > localStorage fallback
+api.interceptors.request.use(async (config) => {
     if (typeof window !== 'undefined') {
+        try {
+            // First try NextAuth session (most reliable after login)
+            const session = await getSession();
+            const backendToken = (session?.user as any)?.backendToken;
+            if (backendToken) {
+                config.headers.Authorization = `Bearer ${backendToken}`;
+                return config;
+            }
+        } catch {
+            // fall through to localStorage
+        }
+        // Fallback: localStorage token (for backward compatibility)
         const token = localStorage.getItem('qd_token');
         if (token) config.headers.Authorization = `Bearer ${token}`;
     }
@@ -23,7 +37,6 @@ api.interceptors.response.use(
         if (error.response?.status === 401 && typeof window !== 'undefined') {
             localStorage.removeItem('qd_token');
             localStorage.removeItem('qd_user');
-            window.location.href = '/';
         }
         return Promise.reject(error);
     }
