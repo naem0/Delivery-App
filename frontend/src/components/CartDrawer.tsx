@@ -55,7 +55,9 @@ export default function CartDrawer({ onClose, onLoginRequired }: CartDrawerProps
             });
             clearCart();
         } catch (err: any) {
-            toast.error(err.response?.data?.message || (isBn ? 'অর্ডার ব্যর্থ হয়েছে' : 'Failed to place order'));
+            console.error('Order Error:', err);
+            const msg = err.response?.data?.message || err.message || 'Unknown error';
+            toast.error(isBn ? `অর্ডার ব্যর্থ: ${msg}` : `Failed: ${msg}`);
         } finally {
             setPlacing(false);
         }

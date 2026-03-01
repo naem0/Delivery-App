@@ -260,15 +260,16 @@ function OrderCard({ order, isBn }: { order: Order; isBn: boolean }) {
 
 export default function MyOrdersModal({ onClose, onLoginRequired }: MyOrdersModalProps) {
     const { language } = useApp();
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
     const [refreshing, setRefreshing] = useState(false);
     const isBn = language === 'bn';
 
     const fetchOrders = async (silent = false) => {
+        if (status === 'loading') return;
         if (!session?.user) {
-            onLoginRequired();
+            if (!silent) onLoginRequired();
             return;
         }
         if (!silent) setLoading(true);
@@ -285,11 +286,13 @@ export default function MyOrdersModal({ onClose, onLoginRequired }: MyOrdersModa
     };
 
     useEffect(() => {
+        if (status === 'loading') return;
         fetchOrders();
         // Auto-refresh every 30 seconds for active orders
         const interval = setInterval(() => fetchOrders(true), 30000);
         return () => clearInterval(interval);
-    }, [session]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [session?.user?.id, status]);
 
     const activeOrders = orders.filter(o => !['delivered', 'cancelled'].includes(o.status));
     const pastOrders = orders.filter(o => ['delivered', 'cancelled'].includes(o.status));
