@@ -99,7 +99,7 @@ export default function HomeWrapper({ categories, products }: HomeWrapperProps) 
     };
 
     return (
-        <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-300 gradient-bg">
             <TopBanner />
             <HeaderNav
                 searchQuery={searchQuery}
@@ -109,7 +109,7 @@ export default function HomeWrapper({ categories, products }: HomeWrapperProps) 
                 onMyOrdersClick={() => setShowMyOrders(true)}
             />
 
-            <main className="max-w-7xl mx-auto px-4 py-8 md:px-8 gradient-bg main-content">
+            <main className="container mx-auto px-4 py-8 md:px-8 main-content">
                 <HeroSection onCustomOrderClick={() => setShowCustomOrder(true)} />
                 <CategorySection
                     categories={categories}

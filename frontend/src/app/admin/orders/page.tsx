@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { format } from 'date-fns';
-import { Search, Filter, Eye, Edit, Trash2 } from 'lucide-react';
+import { Search, Filter, Eye, Edit, Trash2, Map } from 'lucide-react';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
 
 interface Order {
     _id: string;
@@ -76,7 +77,7 @@ export default function AdminOrdersPage() {
     const handleStatusUpdate = async (orderId: string, newStatus: string) => {
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/orders/${orderId}/status`, {
-                method: 'PATCH',
+                method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
@@ -213,6 +214,19 @@ export default function AdminOrdersPage() {
                                             )}
                                         </td>
                                         <td className="px-6 py-4 text-right space-x-2">
+                                            <Link
+                                                href={`/track/${order._id}`}
+                                                className={`p-2 rounded-lg transition-colors ${['on_the_way', 'almost_there'].includes(order.status) ? 'text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20' : 'text-muted-foreground/50 cursor-not-allowed'}`}
+                                                title="Livetrack Order"
+                                                onClick={e => {
+                                                    if (!['on_the_way', 'almost_there'].includes(order.status)) {
+                                                        e.preventDefault();
+                                                        toast.error('Tracking is only available when the order is On The Way');
+                                                    }
+                                                }}
+                                            >
+                                                <Map size={18} />
+                                            </Link>
                                             <button
                                                 onClick={() => setSelectedOrder(order)}
                                                 className="p-2 hover:bg-muted rounded-lg text-muted-foreground hover:text-foreground transition-colors"

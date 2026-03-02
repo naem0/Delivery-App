@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { X, PackageSearch, Clock, CheckCircle2, Truck, MapPin, Store, XCircle, ChevronDown, ChevronUp, RefreshCw } from 'lucide-react';
+import { X, PackageSearch, Clock, CheckCircle2, Truck, MapPin, Store, XCircle, ChevronDown, ChevronUp, RefreshCw, Map } from 'lucide-react';
 import { useApp } from '@/context/AppContext';
 import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
@@ -160,13 +161,24 @@ function OrderCard({ order, isBn }: { order: Order; isBn: boolean }) {
                 {/* Quick info */}
                 <div className="flex items-center justify-between text-xs text-muted-foreground">
                     <span>{order.items.length} {isBn ? 'আইটেম' : 'items'} • ~৳{order.total}</span>
-                    <button
-                        onClick={() => setExpanded(!expanded)}
-                        className="flex items-center gap-1 text-primary font-bold hover:underline"
-                    >
-                        {expanded ? (isBn ? 'কম দেখুন' : 'Less') : (isBn ? 'বিস্তারিত' : 'Details')}
-                        {expanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
-                    </button>
+                    <div className="flex items-center gap-3">
+                        {['on_the_way', 'almost_there'].includes(order.status) && (
+                            <Link
+                                href={`/track/${order._id}`}
+                                className="flex items-center gap-1 text-blue-500 font-bold hover:underline"
+                            >
+                                <Map className="w-3 h-3" />
+                                {isBn ? 'লাইভ ট্র্যাক' : 'Live Track'}
+                            </Link>
+                        )}
+                        <button
+                            onClick={() => setExpanded(!expanded)}
+                            className="flex items-center gap-1 text-primary font-bold hover:underline"
+                        >
+                            {expanded ? (isBn ? 'কম দেখুন' : 'Less') : (isBn ? 'বিস্তারিত' : 'Details')}
+                            {expanded ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+                        </button>
+                    </div>
                 </div>
             </div>
 
