@@ -109,6 +109,39 @@ router.patch('/customers/:id/toggle', async (req, res) => {
     }
 });
 
+// @route  GET /api/admin/categories
+// @desc   Get all categories (Admin)
+router.get('/categories', async (req, res) => {
+    try {
+        const categories = await require('../models/Category.model').find().sort('sortOrder');
+        res.json({ success: true, categories });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+// @route  GET /api/admin/products
+// @desc   Get all products (Admin)
+router.get('/products', async (req, res) => {
+    try {
+        const products = await Product.find().populate('categoryId', 'nameBn nameEn').sort({ createdAt: -1 });
+        res.json({ success: true, products });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+// @route  GET /api/admin/shops
+// @desc   Get all shops (Admin)
+router.get('/shops', async (req, res) => {
+    try {
+        const shops = await require('../models/Shop.model').find().populate('categories', 'nameEn nameBn');
+        res.json({ success: true, shops });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
 // @route  GET /api/admin/reports/popular-products
 // @desc   Get most popular products
 router.get('/reports/popular-products', async (req, res) => {
