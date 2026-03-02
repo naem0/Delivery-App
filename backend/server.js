@@ -10,8 +10,7 @@ const path = require('path');
 // Load env vars
 dotenv.config();
 
-// Connect to database
-connectDB();
+// Database connection will be handled in middleware for Vercel
 
 const app = express();
 const server = http.createServer(app);
@@ -36,6 +35,16 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+
+// Ensure DB is connected before handling API routes (crucial for Vercel Serverless)
+app.use(async (req, res, next) => {
+    try {
+        await connectDB();
+        next();
+    } catch (error) {
+        next(error);
+    }
+});
 
 // Static files (uploads)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
