@@ -21,7 +21,7 @@ export default function HeaderNav({ searchQuery, onSearchChange, onCartClick, on
 
     return (
         <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-md border-b px-4 py-3 md:px-8">
-            <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+            <div className="container mx-auto flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-2">
                     <span className="text-primary font-extrabold text-2xl tracking-tighter">{t.appName}</span>
                     <span className="hidden md:block text-[10px] text-muted-foreground font-medium leading-none whitespace-pre-line">

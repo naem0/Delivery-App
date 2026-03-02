@@ -109,7 +109,7 @@ export default function HomeWrapper({ categories, products }: HomeWrapperProps) 
                 onMyOrdersClick={() => setShowMyOrders(true)}
             />
 
-            <main className="container mx-auto px-4 py-8 md:px-8 main-content">
+            <main className="container mx-auto py-8 main-content">
                 <HeroSection onCustomOrderClick={() => setShowCustomOrder(true)} />
                 <CategorySection
                     categories={categories}

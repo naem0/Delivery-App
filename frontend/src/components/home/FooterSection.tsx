@@ -8,7 +8,7 @@ export default function FooterSection() {
 
     return (
         <footer className="bg-secondary pt-16 pb-8 border-t">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="container mx-auto">
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
                     <div className="col-span-2 lg:col-span-2">
                         <span className="text-primary font-extrabold text-2xl tracking-tighter">{t.appName}</span>
