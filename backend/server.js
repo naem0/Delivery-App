@@ -92,10 +92,13 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-    console.log(`\n🚀 QuickDeli Server running on port ${PORT}`);
-    console.log(`📍 Environment: ${process.env.NODE_ENV}`);
-    console.log(`🌐 API: http://localhost:${PORT}/api/health\n`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    server.listen(PORT, () => {
+        console.log(`\n🚀 QuickDeli Server running on port ${PORT}`);
+        console.log(`📍 Environment: ${process.env.NODE_ENV}`);
+        console.log(`🌐 API: http://localhost:${PORT}/api/health\n`);
+    });
+}
 
-module.exports = { app, io };
+// Required for Vercel serverless deployment
+module.exports = app;
